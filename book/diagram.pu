@@ -1,0 +1,41 @@
+@startuml 本のモデル
+object 本
+
+object 表紙
+object ページ
+
+本 *-- 表紙
+本 *-- ページ
+
+object 基準
+object ページ数
+note right: 本文が49ページ以上
+基準 <|- ページ数
+本 <. 基準 : 満たしている
+
+object コンテンツ
+note right: 文字、記号、図面など
+
+object 素材
+note right: 軟質な素材（紙・木・竹・絹布など）
+
+object 記録 {
+  record(素材, コンテンツ): 記録物
+}
+object 記録物
+object 記録方法
+object 筆写
+object 印刷
+記録方法 <|- 筆写
+記録方法 <|- 印刷
+記録 <. 記録方法
+記録 -- 素材
+記録 -- コンテンツ
+記録物 <.. 記録 : 生成する
+
+object 製本 {
+  create(記録物): 本
+}
+製本 -- 記録物
+本 <.. 製本 : 生成する
+@enduml
