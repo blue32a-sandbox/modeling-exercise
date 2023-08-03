@@ -1,5 +1,7 @@
 # Modeling Exercise
 
+テーマに沿って１時間程度でモデリング。
+
 ## テーマ
 
 - [本](book/README.md)
