@@ -4,6 +4,7 @@
 
 ## テーマ
 
+- [将棋](shogi/README.md)
 - [本](book/README.md)
 - [自転車](bicycle/README.md)
 - [コーヒー](coffee/README.md)
