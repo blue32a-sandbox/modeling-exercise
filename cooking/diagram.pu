@@ -1,0 +1,45 @@
+@startuml 料理のモデル
+object 料理
+
+package 調理 {
+  object 加工
+  料理 <.. 加工: 生成される
+
+  object 調理法
+  object 洗浄
+  object 成型
+  object 調味
+  object 加熱
+  調理法 <|-- 洗浄
+  調理法 <|-- 成型
+  調理法 <|-- 調味
+  調理法 <|-- 加熱
+
+  object 調理人
+  object 調理器具
+  加工 <.. 調理人
+  調理人 ..> 調理法
+  調理人 ..> 調理器具: 使う
+}
+
+object 食材
+object 植物系
+object 動物系
+object その他
+食材 <|-- 植物系
+食材 <|-- 動物系
+食材 <|-- その他
+加工 *-- "1..*" 食材
+
+object 文化
+文化 .> 料理: 認知する
+文化 .> 調理
+文化 .> 食材
+
+object 民族
+object 地域
+object 時代
+民族 -- 文化
+地域 -- 文化
+時代 -- 文化
+@enduml

@@ -4,6 +4,7 @@
 
 ## テーマ
 
+- [料理](cooking/README.md)
 - [野球](baseball/README.md)
 - [将棋](shogi/README.md)
 - [本](book/README.md)
