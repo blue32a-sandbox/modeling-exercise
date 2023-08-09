@@ -1,0 +1,67 @@
+@startuml ウィスキーのモデル
+object 酒
+object ウィスキー
+酒 <|-- ウィスキー
+
+package 材料 {
+  object 穀物
+  object 大麦
+  object ライ麦
+  object トウモロコシ
+
+  穀物 <|-- 大麦
+  穀物 <|-- ライ麦
+  穀物 <|-- トウモロコシ
+}
+
+package 製法 {
+  object 仕込み
+  object 麦汁
+  object 発酵
+  object ウォッシュ
+  object 蒸留
+  object ニューポット
+  object 樽
+  object 熟成
+
+  仕込み - 穀物
+  麦汁 <.. 仕込み
+  発酵 - 麦汁
+  ウォッシュ <.. 発酵
+  蒸留 - ウォッシュ
+  ニューポット <.. 蒸留
+  熟成 - ニューポット
+  樽 - 熟成
+  ウィスキー <.. 熟成
+}
+
+object 分類
+object 材料による分類
+object 産地による分類
+分類 <|-- 材料による分類
+分類 <|-- 産地による分類
+ウィスキー - 分類: 分類される
+
+object 飲み方
+object ストレート
+object オンザロック
+object カクテル
+飲み方 <|-- ストレート
+飲み方 <|-- オンザロック
+飲み方 <|-- カクテル
+飲み方 - ウィスキー
+
+object 綴り
+object whisky
+object whiskey
+綴り <|-- whisky
+綴り <|-- whiskey
+ウィスキー - 綴り
+
+object 綴りのルール
+object 命名ルール
+object 引用ルール
+綴りのルール <|-- スペリングルール
+綴りのルール <|-- 引用ルール
+綴り <. 綴りのルール: 適用される
+@enduml
