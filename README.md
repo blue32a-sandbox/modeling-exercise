@@ -4,6 +4,7 @@
 
 ## テーマ
 
+- [ソフトウェアの試験性](testability/README.md)
 - [ウイスキー](whiskey/README.md)
 - [料理](cooking/README.md)
 - [野球](baseball/README.md)
