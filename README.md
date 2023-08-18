@@ -4,6 +4,7 @@
 
 ## テーマ
 
+- [図書館](library/README.md)
 - [投資信託](investment-fund/README.md)
 - [宇宙](universe/README.md)
 - [ソフトウェアの試験性](testability/README.md)

@@ -1,0 +1,62 @@
+@startuml 図書館のモデル
+object 図書館
+object 図書館資料
+図書館 *-- "1..*" 図書館資料
+
+object メディア
+object 図書
+object 雑誌
+object CD
+object DVD
+メディア <|-- 図書
+メディア <|-- 雑誌
+メディア <|-- CD
+メディア <|-- DVD
+図書館資料 "1..*" -- "1" メディア
+
+object 収集
+object 購入
+object 寄贈
+object 交換
+object 寄託
+収集 <|-- 購入
+収集 <|-- 寄贈
+収集 <|-- 交換
+収集 <|-- 寄託
+図書館資料 <|. 収集: 収集する
+メディア - 収集
+
+object 整理
+object 分類
+note top: 図書分類法による分類
+object 除籍
+整理 <|-- 分類
+整理 <|-- 除籍
+整理 .|> 図書館資料: 整理する
+
+object 保存
+object 補修
+object 複製
+保存 <|-- 補修
+保存 <|-- 複製
+保存 .|> 図書館資料: 保存する
+
+object 提供
+object 貸出
+object 複写
+提供 <|-- 貸出
+提供 <|-- 複写
+図書館資料 <|. 提供: 利用者へ提供する
+
+object 広報
+note top: 集会活動、行事の実施
+広報 -- 図書館
+
+object ガイダンス
+note top: 図書館の利用について
+ガイダンス -- 図書館
+
+object 利用者
+利用者 -- 提供
+利用者 -- ガイダンス
+@enduml
